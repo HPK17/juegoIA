@@ -17,4 +17,5 @@ func _on_area_2d_body_exited(body: Node2D) -> void:
 		label.visible = false
 
 func _input(event: InputEvent) -> void:
-	pass
+	if event.is_action_pressed("ui_interract") :
+		print("Interacuando")
