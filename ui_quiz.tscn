@@ -1,0 +1,56 @@
+[gd_scene load_steps=2 format=3 uid="uid://duginb7gl6rb7"]
+
+[ext_resource type="Script" path="res://script/button.gd" id="1_yine0"]
+
+[node name="Ui_quiz" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.545
+anchor_bottom = 0.396
+offset_right = 2.15997
+offset_bottom = 4.39197
+theme_override_font_sizes/font_size = 50
+text = "Pregunta random Xd"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." node_paths=PackedStringArray("pregunta_label", "botones_respuesta")]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.573
+anchor_right = 1.0
+anchor_bottom = 0.872
+offset_top = -1.30402
+offset_right = 3.0
+offset_bottom = -1.05603
+alignment = 1
+script = ExtResource("1_yine0")
+pregunta_label = NodePath("../Label")
+botones_respuesta = [NodePath("Button"), NodePath("Button2"), NodePath("Button3"), NodePath("Button4")]
+
+[node name="Button" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Opcion A"
+
+[node name="Button2" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Opcion B"
+
+[node name="Button3" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Opcion C"
+
+[node name="Button4" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Opcion D"
+
+[connection signal="pressed" from="VBoxContainer/Button" to="VBoxContainer" method="_on_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/Button2" to="VBoxContainer" method="_on_button_2_pressed"]
+[connection signal="pressed" from="VBoxContainer/Button3" to="VBoxContainer" method="_on_button_3_pressed"]
+[connection signal="pressed" from="VBoxContainer/Button4" to="VBoxContainer" method="_on_button_4_pressed"]
