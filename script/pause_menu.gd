@@ -2,13 +2,11 @@ extends Control
 
 func resume():
 	get_tree().paused = false
-	if $AnimationPlayer:
-		$AnimationPlayer.play_backwards("blur")
+	visible = false  # Oculta el menú al reanudar
 
 func pause():
 	get_tree().paused = true
-	if $AnimationPlayer:
-		$AnimationPlayer.play("blur")
+	visible = true  # Muestra el menú de pausa
 
 func _input(event):
 	if event.is_action_pressed("ui_pause"):

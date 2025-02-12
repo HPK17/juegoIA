@@ -11,13 +11,20 @@ texture = ExtResource("2_cwpmx")
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_n1uq7"]
 texture = ExtResource("2_cwpmx")
 
-[node name="Ui_quiz" type="Control"]
+[node name="Ui_quiz" type="Control" node_paths=PackedStringArray("pregunta_label", "contador_Aciertos", "botones_respuesta", "boton_salida", "vidas_label", "victoria_label")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_n4otg")
+pregunta_label = NodePath("Control/QuestionLabel")
+contador_Aciertos = NodePath("Control/contadorAciertos")
+botones_respuesta = [NodePath("Control/GridContainer/Button"), NodePath("Control/GridContainer/Button2"), NodePath("Control/GridContainer/Button3"), NodePath("Control/GridContainer/Button4")]
+boton_salida = NodePath("Control/HBoxContainer3/Exit")
+vidas_label = NodePath("Control/vida")
+victoria_label = NodePath("Control/victoria")
 
 [node name="Control" type="Control" parent="."]
 anchors_preset = 0
@@ -30,90 +37,71 @@ offset_right = 40.0
 offset_bottom = 40.0
 texture = ExtResource("1_ajms7")
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="Control"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 3.875
-anchor_top = 3.925
-anchor_right = 23.647
-anchor_bottom = 5.2
-offset_left = 219.0
-offset_top = 147.0
-offset_right = -290.88
-offset_bottom = 147.0
-alignment = 1
-
-[node name="Question" type="Label" parent="Control/HBoxContainer2"]
+[node name="QuestionLabel" type="Label" parent="Control"]
 layout_mode = 2
+offset_left = 220.0
+offset_top = 244.0
+offset_right = 1629.0
+offset_bottom = 280.0
 theme_override_colors/font_color = Color(0.927009, 0.913754, 0.859567, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 9
 theme_override_fonts/font = ExtResource("2_dqp6a")
 theme_override_font_sizes/font_size = 35
 text = "Pregunta"
-horizontal_alignment = 1
+autowrap_mode = 2
 uppercase = true
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Control" node_paths=PackedStringArray("pregunta_label", "contador_Aciertos", "botones_respuesta", "boton_salida", "vidas_label", "victoria_label")]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 5.85
-anchor_top = 14.1
-anchor_right = 5.85
-anchor_bottom = 14.1
-offset_right = 723.0
-offset_bottom = 40.0
-scale = Vector2(2.00539, 2.00539)
-theme_override_constants/separation = 60
-alignment = 1
-script = ExtResource("1_n4otg")
-pregunta_label = NodePath("../HBoxContainer2/Question")
-contador_Aciertos = NodePath("../contadorAciertos")
-botones_respuesta = [NodePath("Button"), NodePath("Button2"), NodePath("Button3"), NodePath("Button4")]
-boton_salida = NodePath("../HBoxContainer3/Exit")
-vidas_label = NodePath("../vida")
-victoria_label = NodePath("../victoria")
-metadata/_edit_use_anchors_ = true
+[node name="GridContainer" type="GridContainer" parent="Control"]
+layout_mode = 0
+offset_left = 364.0
+offset_top = 512.0
+offset_right = 1554.0
+offset_bottom = 664.0
 
-[node name="Button" type="Button" parent="Control/HBoxContainer"]
+[node name="Button" type="Button" parent="Control/GridContainer"]
+custom_minimum_size = Vector2(0, 35)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 2.8
 theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_constants/outline_size = 8
+theme_override_constants/outline_size = 5
 theme_override_fonts/font = ExtResource("2_dqp6a")
 theme_override_font_sizes/font_size = 15
 theme_override_styles/normal = SubResource("StyleBoxTexture_tsjvi")
 text = "Opcion A"
 
-[node name="Button2" type="Button" parent="Control/HBoxContainer"]
+[node name="Button2" type="Button" parent="Control/GridContainer"]
+custom_minimum_size = Vector2(0, 35)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 2.8
 theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_constants/outline_size = 8
+theme_override_constants/outline_size = 5
 theme_override_fonts/font = ExtResource("2_dqp6a")
 theme_override_font_sizes/font_size = 15
 theme_override_styles/normal = SubResource("StyleBoxTexture_tsjvi")
 text = "Opcion B"
 
-[node name="Button3" type="Button" parent="Control/HBoxContainer"]
+[node name="Button3" type="Button" parent="Control/GridContainer"]
+custom_minimum_size = Vector2(0, 35)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 2.8
 theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_constants/outline_size = 8
+theme_override_constants/outline_size = 5
 theme_override_fonts/font = ExtResource("2_dqp6a")
 theme_override_font_sizes/font_size = 15
 theme_override_styles/normal = SubResource("StyleBoxTexture_tsjvi")
 text = "Opcion C"
 
-[node name="Button4" type="Button" parent="Control/HBoxContainer"]
+[node name="Button4" type="Button" parent="Control/GridContainer"]
+custom_minimum_size = Vector2(0, 35)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 2.8
 theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_constants/outline_size = 8
+theme_override_constants/outline_size = 5
 theme_override_fonts/font = ExtResource("2_dqp6a")
 theme_override_font_sizes/font_size = 15
 theme_override_styles/normal = SubResource("StyleBoxTexture_tsjvi")
@@ -206,4 +194,4 @@ horizontal_alignment = 1
 vertical_alignment = 1
 uppercase = true
 
-[connection signal="pressed" from="Control/HBoxContainer3/Exit" to="Control/HBoxContainer" method="_on_button_pressed"]
+[connection signal="pressed" from="Control/HBoxContainer3/Exit" to="." method="_on_exit_pressed"]
