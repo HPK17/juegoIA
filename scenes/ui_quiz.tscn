@@ -54,10 +54,11 @@ uppercase = true
 
 [node name="GridContainer" type="GridContainer" parent="Control"]
 layout_mode = 0
-offset_left = 364.0
+offset_left = 621.0
 offset_top = 512.0
-offset_right = 1554.0
+offset_right = 1014.0
 offset_bottom = 664.0
+scale = Vector2(1.78605, 1.78605)
 
 [node name="Button" type="Button" parent="Control/GridContainer"]
 custom_minimum_size = Vector2(0, 35)
