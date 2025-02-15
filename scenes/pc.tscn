@@ -1,7 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://b2drg7x4xwrvk"]
+[gd_scene load_steps=6 format=3 uid="uid://b2drg7x4xwrvk"]
 
 [ext_resource type="Script" path="res://script/interactuar2.gd" id="1_isnn7"]
-[ext_resource type="Texture2D" uid="uid://dhv1kc148eobo" path="res://art_2d/object_sprites/test2.png" id="2_sa274"]
 [ext_resource type="FontFile" uid="uid://blr358jc2kmta" path="res://fonts/Minecraft.ttf" id="3_8dvpr"]
 [ext_resource type="PackedScene" uid="uid://duginb7gl6rb7" path="res://scenes/ui_quiz.tscn" id="3_dwjg3"]
 
@@ -16,10 +15,6 @@ label = NodePath("Label")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 scale = Vector2(7, 7)
 shape = SubResource("RectangleShape2D_4j74m")
-
-[node name="Sprite2D" type="Sprite2D" parent="CollisionShape2D"]
-scale = Vector2(0.25, 0.25)
-texture = ExtResource("2_sa274")
 
 [node name="Area2D" type="Area2D" parent="."]
 
@@ -37,6 +32,7 @@ theme_override_font_sizes/font_size = 100
 text = "E"
 
 [node name="Ui_quiz" parent="." instance=ExtResource("3_dwjg3")]
+visible = false
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

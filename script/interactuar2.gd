@@ -1,3 +1,4 @@
+class_name interactable
 extends StaticBody2D
 
 @export var label : Label
